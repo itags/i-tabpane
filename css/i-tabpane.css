@@ -1,0 +1,97 @@
+/* ======================================================================= */
+/* ======================================================================= */
+/* ======================================================================= */
+/* Definition of itag shadow-css is done by defining a `dummy` css-rule    */
+/* for the dummy-element: `itag-css` --> its property (also dummy) `i-tag` */
+/* will define which itag will be css-shadowed                             */
+/* ======================================================================= */
+itag-css {
+    i-tag: i-tabpane;  /* set the property-value to the proper itag */
+}
+/* ======================================================================= */
+/* ======================================================================= */
+/* ======================================================================= */
+
+
+/* ================================= */
+/* set invisiblity when not rendered */
+/* ================================= */
+i-tabpane:not(.itag-rendered) {
+    /* don't set visibility to hidden --> you cannot set a focus on those items */
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    z-index: -1;
+}
+
+i-tabpane:not(.itag-rendered) * {
+    opacity: 0 !important;
+}
+/* ================================= */
+
+i-tabpane {
+    /* make it accept width and height by swith from :inline" to "inline-block"*/
+    display: inline-block;
+    *display: block;
+    *zoom: 1;
+}
+
+i-tabpane >ul {
+    margin:0;
+    padding:0;
+    list-style:none;
+    height: 1.9em;
+    overflow: hidden;
+}
+
+i-tabpane >ul li div {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    opacity: 0.6;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+i-tabpane >ul li:hover div {
+    opacity: 0.8;
+}
+
+i-tabpane >ul li.pure-button-active div,
+i-tabpane >ul li:active div {
+    opacity: 1;
+}
+
+i-tabpane >ul li {
+    display: inline-block;
+    *display: inline; /* IE */
+    *zoom: 1; /* IE */
+    margin-right: 0.25em;
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset;
+}
+
+i-tabpane >ul li.pure-button {
+    display: inline-block;
+    *display: inline; /* IE */
+    *zoom: 1; /* IE */
+    margin-right: 0.2em;
+    border-radius: 2px 2px 0 0;
+    border-bottom: none;
+}
+
+i-tabpane >div {
+    height: 100%;
+    margin-top: -2.18em;
+    padding-top: 2.18em;
+}
+
+i-tabpane >div >div.container {
+    border: 1px solid #2647a0;
+    border-top: 5px solid #2647a0;
+    padding: 0.25em 0.5em;
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+}
